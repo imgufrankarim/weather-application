@@ -1,0 +1,19 @@
+<div class="card shadow" *ngIf="weatherList.length">
+  <ul class="list-group">
+    <li class="list-group-item p-0" *ngFor="let weather of weatherList">
+
+      <div class="grid-container" *ngFor="let weatherMetadata of weather.weatherMetadataList">
+        <div class="icon">
+          <img
+            [src]="getImgUrlForIcon(weatherMetadata.icon)" 
+            alt=""
+          />
+        </div>
+        <div class="date">{{ weather.dtTxt.format('dddd h:mm a') }}</div>
+        <div class="temperature"><small>Temperature:</small> {{ weather.main.temp }}°C</div>
+        
+      </div>
+
+    </li>
+  </ul>
+</div>

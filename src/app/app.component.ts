@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+ //import * as moment from 'moment';
+ declare var require: any
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'weather-app-locobuzz';
+
+  constructor() {
+    this.configureLibs();
+  }
+
+  configureLibs() {
+    const moment = require('moment');
+    moment.defaultFormat = 'YYYY-MM-DD HH:mm';
+  }
 }
